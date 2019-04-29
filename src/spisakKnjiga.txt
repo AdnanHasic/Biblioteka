@@ -1,0 +1,50 @@
+0
+Mesa Selimovic:
+Tvrdjava
+DA
+
+1
+Ivo Andric:
+Prokleta avlija
+DA
+
+2
+Herbert Schildt:
+JDK 7
+NE
+Sat Apr 12 9:59:51 CEST 2019
+3
+Albert Camus:
+Stranac
+DA
+
+4
+Goethe:
+Faust
+DA
+
+5
+Samuel Beckett:
+Cekajuci Godoa
+NE
+Sat Apr 12 14:59:51 CEST 2019
+6
+William Shakespeare:
+Hamlet
+NE
+Sat Apr 5 14:59:51 CEST 2019
+7
+Eric Knight:
+Lesi se vraca kuci
+DA
+
+8
+Ivan Cankar:
+Crtice iz moje mladosti
+DA
+
+9
+Jack London:
+Bijeli Ocnjak
+NE
+Sat Apr 10 12:00:51 CEST 2019
