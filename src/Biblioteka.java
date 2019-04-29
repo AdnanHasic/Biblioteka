@@ -31,7 +31,9 @@ public class Biblioteka {
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
+
         int broj = 1;
+
         while (broj != 0) {
             novaKnjiga.ispisListe(listaKnjiga);
             System.out.println("Da li vec imate kreiran racun : DA ili NE ");
