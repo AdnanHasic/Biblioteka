@@ -15,6 +15,7 @@ public class Biblioteka {
         List<KorsinickiRacun> listaKorisnickihRacuna = new ArrayList<>();
 
         FileInputStream fis = null;
+
         try {
             fis = new FileInputStream("src/spisakKnjiga.txt");
             Scanner ulaz = new Scanner(fis);
