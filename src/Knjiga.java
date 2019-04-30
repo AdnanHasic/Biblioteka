@@ -10,6 +10,7 @@ public class Knjiga {
     private String datum;
 
     public Knjiga() {
+        
     }
 
     public Knjiga(int redniBrojKnjige, String autorKnjige, String nazivKnjige, String naStanju, String datum) {
