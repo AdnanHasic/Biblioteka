@@ -14,11 +14,10 @@ public class Biblioteka {
         List<Knjiga> listaKnjiga = new ArrayList<>();
         List<KorsinickiRacun> listaKorisnickihRacuna = new ArrayList<>();
 
-        FileInputStream fis = null;
+        Scanner ulaz;
 
         try {
-            fis = new FileInputStream("src/spisakKnjiga.txt");
-            Scanner ulaz = new Scanner(fis);
+           ulaz = new Scanner(new FileReader("src/spisakKnjiga.txt"));
 
             while (ulaz.hasNextLine()) {
                 int redniBroj = Integer.parseInt(ulaz.nextLine());
