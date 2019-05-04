@@ -1,3 +1,4 @@
+import javax.swing.*;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -14,10 +15,23 @@ public class Biblioteka {
         List<Knjiga> listaKnjiga = new ArrayList<>();
         List<KorsinickiRacun> listaKorisnickihRacuna = new ArrayList<>();
 
-        Scanner ulaz;
+        int brojac = 0;
+
+        JFileChooser prozorIzbora = new JFileChooser();
+
+        while (brojac != JFileChooser.CANCEL_OPTION) {
+            prozorIzbora.setDialogTitle("Izaberite datoteku za citanje : ");
+            prozorIzbora.setSelectedFile(null);
+            int izbor = prozorIzbora.showOpenDialog(null);
+            brojac++;
+        }
+
+        File datoteka = prozorIzbora.getSelectedFile();
+
+        Scanner ulaz = null;
 
         try {
-           ulaz = new Scanner(new FileReader("src/spisakKnjiga.txt"));
+            ulaz = new Scanner(new FileReader(datoteka));
 
             while (ulaz.hasNextLine()) {
                 int redniBroj = Integer.parseInt(ulaz.nextLine());
@@ -30,6 +44,7 @@ public class Biblioteka {
             }
         } catch (FileNotFoundException e) {
             e.printStackTrace();
+
         }
 
         int broj = 1;
@@ -48,6 +63,8 @@ public class Biblioteka {
             broj = unos.nextInt();
             unos.nextLine();
         }
+        novaKnjiga.ispisListe(listaKnjiga);
         Biblioteka.unos.close();
+        ulaz.close();
     }
 }
