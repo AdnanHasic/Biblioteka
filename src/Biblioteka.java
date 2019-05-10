@@ -8,6 +8,7 @@ public class Biblioteka {
 
     public static Scanner unos = new Scanner(System.in);
 
+
     public static void main(String[] args) {
 
         Knjiga novaKnjiga = null;
@@ -15,15 +16,20 @@ public class Biblioteka {
         List<Knjiga> listaKnjiga = new ArrayList<>();
         List<KorsinickiRacun> listaKorisnickihRacuna = new ArrayList<>();
 
-        int brojac = 0;
+        JFileChooser prozorIzbora = null;
+        try {
+            prozorIzbora = new JFileChooser();
 
-        JFileChooser prozorIzbora = new JFileChooser();
+            int izbor = -1;
 
-        while (brojac != JFileChooser.CANCEL_OPTION) {
-            prozorIzbora.setDialogTitle("Izaberite datoteku za citanje : ");
-            prozorIzbora.setSelectedFile(null);
-            int izbor = prozorIzbora.showOpenDialog(null);
-            brojac++;
+            while (izbor != JFileChooser.APPROVE_OPTION) {
+                prozorIzbora.setDialogTitle("Izaberite datoteku za citanje : ");
+                prozorIzbora.setSelectedFile(null);
+                izbor = prozorIzbora.showOpenDialog(null);
+
+            }
+        } catch (Exception e) {
+            System.out.println("Greska prilikom ucitavanja datoteke");
         }
 
         File datoteka = prozorIzbora.getSelectedFile();
