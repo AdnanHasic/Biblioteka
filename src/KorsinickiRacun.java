@@ -1,18 +1,49 @@
 import java.util.Date;
 import java.util.List;
 
-public class KorsinickiRacun extends Korisnik {
+public class KorsinickiRacun {
 
+
+    private String imeIprezime;
+    private String brojTelefona;
+    private String adresa;
     private int brojKorisnika = 0;
     private String knjiga;
 
     public KorsinickiRacun() {
     }
 
-    public KorsinickiRacun(int brojKorisnika, String imeIprezime, String brojTelefona, String adresa, String knjiga) {
-        super(imeIprezime, brojTelefona, adresa);
-        this.knjiga = knjiga;
+
+    public KorsinickiRacun(String imeIprezime, String brojTelefona, String adresa, int brojKorisnika, String knjiga) {
+        this.imeIprezime = imeIprezime;
+        this.brojTelefona = brojTelefona;
+        this.adresa = adresa;
         this.brojKorisnika = brojKorisnika;
+        this.knjiga = knjiga;
+    }
+
+    public String getImeIprezime() {
+        return imeIprezime;
+    }
+
+    public void setImeIprezime(String imeIprezime) {
+        this.imeIprezime = imeIprezime;
+    }
+
+    public String getBrojTelefona() {
+        return brojTelefona;
+    }
+
+    public void setBrojTelefona(String brojTelefona) {
+        this.brojTelefona = brojTelefona;
+    }
+
+    public String getAdresa() {
+        return adresa;
+    }
+
+    public void setAdresa(String adresa) {
+        this.adresa = adresa;
     }
 
     public int getBrojKorisnika() {
@@ -23,12 +54,6 @@ public class KorsinickiRacun extends Korisnik {
         this.brojKorisnika = brojKorisnika;
     }
 
-
-    public void setDatum(Date datum) {
-
-    }
-
-
     public String getKnjiga() {
         return knjiga;
     }
@@ -37,8 +62,8 @@ public class KorsinickiRacun extends Korisnik {
         this.knjiga = knjiga;
     }
 
-
     public void kreiRajKorisnickiRacun(List<KorsinickiRacun> listaKorisnickihRacuna) {
+
         System.out.println("\nUkoliko zelite da iznajmite neku od navedenih knjiga koje su na stanju morate kreirati racun : ");
 
         System.out.println("Unesite ime i prezime :");
@@ -56,7 +81,7 @@ public class KorsinickiRacun extends Korisnik {
 
         brojKorisnika++;
 
-        KorsinickiRacun noviKorisnik = new KorsinickiRacun(brojKorisnika, imeIprezime, brojTelefona, adresa, knjiga);
+        KorsinickiRacun noviKorisnik = new KorsinickiRacun(imeIprezime,brojTelefona,adresa,brojKorisnika,knjiga);
 
         listaKorisnickihRacuna.add(noviKorisnik);
 
