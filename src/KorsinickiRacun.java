@@ -62,38 +62,8 @@ public class KorsinickiRacun {
         this.knjiga = knjiga;
     }
 
-    public void kreiRajKorisnickiRacun(List<KorsinickiRacun> listaKorisnickihRacuna) {
 
-        System.out.println("\nUkoliko zelite da iznajmite neku od navedenih knjiga koje su na stanju morate kreirati racun : ");
 
-        System.out.println("Unesite ime i prezime :");
-        String imeIprezime = Biblioteka.unos.nextLine();
-
-        System.out.println("Unesite broj telefona : ");
-        String brojTelefona = Biblioteka.unos.next();
-
-        System.out.println("Unesite adresu : ");
-        Biblioteka.unos.nextLine();
-
-        String adresa = Biblioteka.unos.nextLine();
-
-        String knjiga = "-----------";
-
-        brojKorisnika++;
-
-        KorsinickiRacun noviKorisnik = new KorsinickiRacun(imeIprezime,brojTelefona,adresa,brojKorisnika,knjiga);
-
-        listaKorisnickihRacuna.add(noviKorisnik);
-
-    }
-
-    public boolean provjeraDaLiImaVecUBaziKorisnika(String odgovor) {
-        if (odgovor.equalsIgnoreCase("DA")) {
-            return true;
-        }
-        return false;
-
-    }
 
     @Override
     public String toString() {

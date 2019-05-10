@@ -63,6 +63,7 @@ public class Knjiga {
 
 
     public void ispisListe(List listaKlaseKnjiga) {
+
         for (int i = 0; i < listaKlaseKnjiga.size(); i++) {
             System.out.println(listaKlaseKnjiga.get(i));
         }
@@ -70,74 +71,6 @@ public class Knjiga {
     }
 
 
-    static void iznajmljivanjeKnjige(List<Knjiga> listaKnjiga, List<KorsinickiRacun> listaKorisnickihRacuna) {
-
-        System.out.println("Za log unesite Vas korisnicki broj : ");
-        int korisnickiBroj = Biblioteka.unos.nextInt();
-
-        while (!provjeraLogovanja(korisnickiBroj, listaKorisnickihRacuna)) {
-            System.out.println("Unijeli ste pogresan korisnicki broj pokusajte ponovo : ");
-            korisnickiBroj = Biblioteka.unos.nextInt();
-        }
-        System.out.println("Unesite broj za knjigu : ");
-        int brojZaKnjigu = Biblioteka.unos.nextInt();
-
-        while (!provjeraBrojaKnjigeNaListi(brojZaKnjigu, listaKnjiga)) {
-            System.out.println("Knjigu koju ste trazili nemamo na stanju pod tim brojem unseite drugi broj knjige :");
-            brojZaKnjigu = Biblioteka.unos.nextInt();
-        }
-
-
-        while (!provjeraDaLiJeNaStanjuKnjiga(brojZaKnjigu, listaKnjiga)) {
-            brojZaKnjigu = Biblioteka.unos.nextInt();
-        }
-
-        for (int i = 0; i < listaKorisnickihRacuna.size(); i++) {
-            if (korisnickiBroj == listaKorisnickihRacuna.get(i).getBrojKorisnika()) {
-                listaKorisnickihRacuna.get(i).setKnjiga(listaKnjiga.get(brojZaKnjigu).getNazivKnjige());
-                promijeniUIznajmljena(listaKnjiga, brojZaKnjigu);
-            }
-        }
-    }
-
-    public static boolean provjeraBrojaKnjigeNaListi(int brojKnjige, List<Knjiga> listaKnjiga) {
-        if (brojKnjige >= listaKnjiga.size()) {
-            return false;
-        }
-        return true;
-    }
-
-    public static void promijeniUIznajmljena(List<Knjiga> listaKnjiga, int brojaZaknjigu) {
-        for (int i = 0; i < listaKnjiga.size(); i++) {
-            if (brojaZaknjigu == listaKnjiga.get(i).getRedniBrojKnjige()) {
-                listaKnjiga.get(i).setNaStanju("NE");
-                listaKnjiga.get(i).setDatum(new Date().toString());
-            }
-        }
-    }
-
-    public static boolean provjeraDaLiJeNaStanjuKnjiga(int brojZaKnjigu, List<Knjiga> listaKnjiga) {
-        for (int i = 0; i < listaKnjiga.size(); i++) {
-            if (brojZaKnjigu == listaKnjiga.get(i).getRedniBrojKnjige()) {
-                if (listaKnjiga.get(i).getNaStanju().equalsIgnoreCase("NE")) {
-                    System.out.println("Zao nam je knjigu nemamo na stanju,izaberite drugu knjigu !");
-                    return false;
-                }
-
-            }
-        }
-        return true;
-    }
-
-
-    public static boolean provjeraLogovanja(int korisnickiBroj, List<KorsinickiRacun> listaKorisnickihRacun) {
-        for (int i = 0; i < listaKorisnickihRacun.size(); i++) {
-            if (korisnickiBroj == listaKorisnickihRacun.get(i).getBrojKorisnika()) {
-                return true;
-            }
-        }
-        return false;
-    }
 
 
     @Override

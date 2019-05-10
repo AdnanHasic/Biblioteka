@@ -8,13 +8,17 @@ public class Biblioteka {
 
     public static Scanner unos = new Scanner(System.in);
 
-
     public static void main(String[] args) {
 
         Knjiga novaKnjiga = null;
         KorsinickiRacun noviKorisnik = new KorsinickiRacun();
         List<Knjiga> listaKnjiga = new ArrayList<>();
         List<KorsinickiRacun> listaKorisnickihRacuna = new ArrayList<>();
+
+        JOptionPane.showMessageDialog(null,
+                "Morate izabrati datoteku spisak knjiga u narednom prozoru !",
+                "Biblioteka Tuzla",
+                JOptionPane.INFORMATION_MESSAGE);
 
         JFileChooser prozorIzbora = null;
         try {
@@ -49,28 +53,49 @@ public class Biblioteka {
                 listaKnjiga.add(novaKnjiga);
             }
         } catch (FileNotFoundException e) {
-            e.printStackTrace();
 
+            System.out.println("Greska prilikom ucitavanja datoteke");
         }
+
+
 
         int broj = 1;
 
         while (broj != 0) {
+
+
             novaKnjiga.ispisListe(listaKnjiga);
-            System.out.println("Da li vec imate kreiran racun : DA ili NE ");
-            String odgovor = Biblioteka.unos.nextLine();
-            if (!noviKorisnik.provjeraDaLiImaVecUBaziKorisnika(odgovor)) {
-                noviKorisnik.kreiRajKorisnickiRacun(listaKorisnickihRacuna);
+
+            String odgovor = JOptionPane.showInputDialog(null,
+                    "Da li vec imate kreiran racun : DA ili NE ",
+                    "Biblioteka Tuzla",
+                    JOptionPane.QUESTION_MESSAGE);
+
+            if (!new Metode().provjeraDaLiImaVecUBaziKorisnika(odgovor)) {
+               KreiranjeKorisnickogRacuna.kreirajKorisnickiRacun(listaKorisnickihRacuna);
             }
+
             novaKnjiga.ispisListe(listaKorisnickihRacuna);
-            novaKnjiga.iznajmljivanjeKnjige(listaKnjiga, listaKorisnickihRacuna);
+
+            new Metode().iznajmljivanjeKnjige(listaKnjiga, listaKorisnickihRacuna);
+
             novaKnjiga.ispisListe(listaKorisnickihRacuna);
+
             System.out.println("Za izlaz iz programa unesite broj 0 za nastavak neki drugi broj : \n");
-            broj = unos.nextInt();
-            unos.nextLine();
+            broj = Integer.parseInt(JOptionPane.showInputDialog(null,
+                    "Za izlaz iz programa unesite broj 0 za nastavak neki drugi broj : \n",
+                    "Biblioteka Tuzla",
+                    JOptionPane.QUESTION_MESSAGE));
         }
         novaKnjiga.ispisListe(listaKnjiga);
+
         Biblioteka.unos.close();
+
         ulaz.close();
+
+        JOptionPane.showMessageDialog(null,
+                "Hvala sto ste koristili nase usluge !",
+                "Biblioteka Tuzla",
+                JOptionPane.INFORMATION_MESSAGE);
     }
 }
